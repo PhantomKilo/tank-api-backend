@@ -22,7 +22,7 @@ router.post('/', (req, res) => {
 })
 
 // POST - this will CREATE an AMMO TYPE for a SPECIFIC TANK
-router.post('/:tankId', (req, res) => {
+router.post('/:tankId/ammo', (req, res) => {
   Tank.updateOne(
       {
         _id: req.params.tankId
@@ -35,8 +35,8 @@ router.post('/:tankId', (req, res) => {
       .catch(error => console.log(error))
 })
 
-// POST - this will CREATE an AMMO TYPE for a SPECIFIC TANK
-router.post('/:tankId', (req, res) => {
+// POST - this will CREATE a SECONDARY for a SPECIFIC TANK
+router.post('/:tankId/secondary', (req, res) => {
     Tank.updateOne(
         {
           _id: req.params.tankId
@@ -50,7 +50,7 @@ router.post('/:tankId', (req, res) => {
   })
 
 
-// DELETE - this will DELETE a SPECIFIC MEMBER 
+// DELETE - this will DELETE a SPECIFIC TANK 
 router.delete('/:tankId', (req, res) => {
     Tank.deleteOne({ _id:  req.params.tankId})
     .then(tank => {
@@ -62,7 +62,7 @@ router.delete('/:tankId', (req, res) => {
 })
 
 // DELETE - this will DELETE a SPECIFIC AMMO TYPE for a TANK
-router.delete('/:tankId/:ammoId', (req, res) => {
+router.delete('/:tankId/ammo/:ammoId', (req, res) => {
     Tank.updateOne(
         {
           _id: req.params.tankId
@@ -77,7 +77,7 @@ router.delete('/:tankId/:ammoId', (req, res) => {
 
 
 // DELETE - this will DELETE a SPECIFIC WEAPON for a TANK
-router.delete('/:tankId/:secondaryId', (req, res) => {
+router.delete('/:tankId/secondary/:secondaryId', (req, res) => {
     Tank.updateOne(
         {
           _id: req.params.tankId
@@ -97,7 +97,7 @@ router.put('/:tankId', (req, res) => {
 })
 
 // PUT - this will update a SPECIFIC AMMO TYPE for a TANK
-router.put('/:tankId/:ammoId', (req, res) => {
+router.put('/:tankId/ammo/:ammoId', (req, res) => {
     Tank.updateOne(
         {
           _id: req.params.tankId, "ammo._id": req.params.ammoId
@@ -112,7 +112,7 @@ router.put('/:tankId/:ammoId', (req, res) => {
   })
 
   // PUT - this will update a SPECIFIC SECONDARY for a TANK
-router.put('/:tankId/:secondaryId', (req, res) => {
+router.put('/:tankId/secondary/:secondaryId', (req, res) => {
     Tank.updateOne(
         {
           _id: req.params.tankId, "secondary._id": req.params.secondaryId
