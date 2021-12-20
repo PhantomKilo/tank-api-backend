@@ -2,6 +2,7 @@ const mongoose = require('../db/connection');
 
 const weaponSchema = require('./Weapons');
 const ammoSchema = require('./Ammo');
+const imageSchema = require('./Images')
     
 const tankSchema = new mongoose.Schema({
     model: {
@@ -13,7 +14,8 @@ const tankSchema = new mongoose.Schema({
         required: true
     },
     ammo: [ammoSchema], 
-    secondary: [weaponSchema]
+    secondary: [weaponSchema],
+    images: [imageSchema]
   });
   
   const Tank = mongoose.model('Tank', tankSchema);
