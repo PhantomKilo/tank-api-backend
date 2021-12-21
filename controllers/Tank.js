@@ -61,7 +61,7 @@ router.post("/:tankId/image", (req, res) => {
       _id: req.params.tankId,
     },
     {
-      $push: { Images: req.body },
+      $push: { images: req.body },
     }
   )
     .then((image) => res.status(201).json({ status: 201, image: image }))

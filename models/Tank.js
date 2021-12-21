@@ -13,6 +13,10 @@ const tankSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    country: {
+        type: String,
+        required: true
+    },
     ammo: [ammoSchema], 
     secondary: [weaponSchema],
     images: [imageSchema]
