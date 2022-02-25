@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const Tank = require("../models/Tank");
+const Tank = require("../models/Tank/Tank");
 
-// GET all MEMBERs
+// GET All TANKS
 router.get("/", (req, res) => {
   Tank.find().then((tanks) =>
     res.status(200).json({ status: 200, tanks: tanks })
   );
 });
 
-// GET a SPECIFIC MEMBER
+// GET a SPECIFIC APC
 router.get("/:tankId", (req, res) => {
   Tank.find({ _id: req.params.tankId }).then((tank) =>
     res.status(200).json({ status: 200, tank: tank })

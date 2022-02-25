@@ -2,6 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const tankController = require('./controllers/Tank')
+const ifvController = require('./controllers/IFV')
+const apcController = require("./controllers/APC")
 
 const app = express()
 const PORT = process.env.PORT || 4000
@@ -16,6 +18,10 @@ app.use(express.json())
     // ⬆️ This allows us to use the json data type on Postman.
 
 app.use('/tank', tankController)
+
+app.use('/ifv', ifvController)
+
+app.use('/apc', apcController)
 
 app.get('/', (req, res) => {
     res.json({
