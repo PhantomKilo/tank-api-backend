@@ -1,4 +1,4 @@
-const mongoose = require('../../../db/connection'); 
+const mongoose = require('../../db/connection')
 
 const weaponSchema = require('./Weapons');
 const ammoSchema = require('./Ammo');
