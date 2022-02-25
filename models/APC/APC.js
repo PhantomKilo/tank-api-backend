@@ -13,7 +13,7 @@ const apcSchema = new mongoose.Schema({
         required: true
     },
     capacity: {
-        type: number,
+        type: Number,
         required: true
     },
     secondary: [weaponSchema],
